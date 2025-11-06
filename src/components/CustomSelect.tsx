@@ -225,8 +225,10 @@ export default function CustomSelect(props: CustomSelectProps) {
         'react-js-cron-select': true,
         'react-js-cron-custom-select': true,
         [`${className}-select`]: !!className,
+        //empty value
+        'react-js-cron-select-empty': !stringValue,
       }),
-    [className]
+    [className, stringValue]
   )
 
   const popupClassName = useMemo(
