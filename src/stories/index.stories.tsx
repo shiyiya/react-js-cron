@@ -22,6 +22,7 @@ import {
   ENGLISH_VARIANT_LOCALE,
   FRENCH_LOCALE,
   NO_PREFIX_SUFFIX_LOCALE,
+  ZH_LOCALE,
 } from './constants.stories'
 import './styles.stories.css'
 import { useCronReducer } from './utils.stories'
@@ -106,7 +107,7 @@ export function DynamicSettings() {
   const [allowEmpty, setAllowEmpty] = useState<AllowEmpty>('for-default-value')
   const [clockFormat, setClockFormat] = useState<ClockFormat | ''>('')
   const [locale, setLocale] = useState<
-    'english' | 'french' | 'english-variant'
+    'english' | 'french' | 'english-variant' | 'chinese'
   >('english')
   const [defaultPeriod, setDefaultPeriod] = useState<PeriodType>('day')
   const [selectedPeriod, setSelectedPeriod] = useState<PeriodType>('day')
@@ -153,6 +154,9 @@ export function DynamicSettings() {
         break
       case 'english-variant':
         newLocale = ENGLISH_VARIANT_LOCALE
+        break
+      case 'chinese':
+        newLocale = ZH_LOCALE
         break
 
       default:
@@ -330,6 +334,7 @@ export function DynamicSettings() {
           >
             <Radio.Button value='english'>English</Radio.Button>
             <Radio.Button value='french'>French</Radio.Button>
+            <Radio.Button value='chinese'>Chinese</Radio.Button>
             <Radio.Button value='english-variant'>English variant</Radio.Button>
           </Radio.Group>
         </Form.Item>
